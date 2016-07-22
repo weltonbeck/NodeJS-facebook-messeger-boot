@@ -408,7 +408,6 @@ function sendEventsMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "generic",
-          text: "Gostaria de saber sobre qual evento?",
           elements: [{
             title: "BRASIL GAME SHOW",              
             image_url: SERVER_URL + "/assets/rift.png",
