@@ -351,7 +351,7 @@ function sendEventsMessage(recipientId) {
         payload: {
           template_type: "generic",
           elements: [{
-            title: "",              
+            title: " ",              
             image_url: SERVER_URL + "/assets/Brasil-Game-Show.jpg",
             buttons: [{
               type: "postback",
@@ -359,7 +359,7 @@ function sendEventsMessage(recipientId) {
               payload: "BRASIL GAME SHOW",
             }],
           }, {
-            title: "",                  
+            title: " ",              
             image_url: SERVER_URL + "/assets/comic_con_experience.png",
             buttons: [{
               type: "postback",
