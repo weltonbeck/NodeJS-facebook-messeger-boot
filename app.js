@@ -216,7 +216,24 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called " + payload);
+  // sendTextMessage(senderID, "Postback called " + payload);
+
+  switch (payload) {
+
+    case 'BRASIL GAME SHOW':
+      sendEventOptionsMessage(senderID, 
+        'https://www.facebook.com/events/1076353785732016/', 
+        'http://www.brasilgameshow.com.br/');
+      break; 
+    case 'COMIC CON EXPERIENCE':
+      sendEventOptionsMessage(senderID, 
+        'https://www.facebook.com/events/621701824653906/', 
+        'http://www.ccxp.com.br/');
+      break;
+    case 'Sale':
+      sendTextMessage(senderID, "Pontos de venda");
+      break;
+  }
 }
 
 /*
@@ -271,16 +288,16 @@ function receivedMessage(event) {
         sendEventsMessage(senderID);
         break;        
 
-      case 'typing on':
-        sendTypingOn(senderID);
-        break;        
+      // case 'typing on':
+      //   sendTypingOn(senderID);
+      //   break;        
 
-      case 'typing off':
-        sendTypingOff(senderID);
-        break;        
+      // case 'typing off':
+      //   sendTypingOff(senderID);
+      //   break;        
 
       default:
-        sendTextMessage(senderID, 'Isto é um teste');
+        // sendTextMessage(senderID, 'Isto é um teste');
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -326,12 +343,52 @@ function sendEventsMessage(recipientId) {
             {
               type: "postback",
               title: "BRASIL GAME SHOW",
-              payload: "DEVELOPED_DEFINED_PAYLOAD"
+              payload: "BRASIL GAME SHOW"
             },
             {
               type: "postback",
               title: "COMIC CON EXPERIENCE",
-              payload: "DEVELOPED_DEFINED_PAYLOAD"
+              payload: "COMIC CON EXPERIENCE"
+            },
+          ]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
+/*
+ * Send a button message using the Send API.
+ *
+ */
+function sendEventOptionsMessage(recipientId, link_evento, like_site) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "Selecione uma opção:",
+          buttons:[
+            {
+              type: "postback",
+              title: "Pontos de Venda",
+              payload: "Sale"
+            },
+            {
+              type: "web_url",
+              title: "Mais Informações",
+              url: link_evento,
+            },
+            {
+              type: "web_url",
+              title: "Site do Evento",
+              url: like_site,
             },
           ]
         }
