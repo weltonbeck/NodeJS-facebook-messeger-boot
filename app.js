@@ -267,7 +267,7 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
 
-      case 'Ajuda'
+      case 'Ajuda':
         sendEventsMessage(senderID);
         break;        
 
