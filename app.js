@@ -256,6 +256,9 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
 
+      case 'generic':
+        sendTextMessage(senderID, "teste teste teste");
+        break;
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
