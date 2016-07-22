@@ -234,14 +234,13 @@ function receivedPostback(event) {
       sendSaleCitiesMessage(senderID);
       break;
     case 'Sale-jac':
-        sendTextMessage(senderID, "Cantinho Oriental");
-        sendTextMessage(senderID, "Rua Dr. Lucio Malta, 393 - Loja 33 - Centro");
-        sendTextMessage(senderID, "Dentro do Promovale");
-        sendTextMessage(senderID, "Tel.: (12) 3952-4694");
-        sendTextMessage(senderID, "Horário de funcionamento: Segunda à Sábado das 9:00 às 19:00");
+        sendTextMessage(senderID, "Cantinho Oriental\n------------------\nRua Dr. Lucio Malta, 393 - Loja 33 - Centro\nDentro do Promovale\nTel.: (12) 3952-4694\nHorário de funcionamento: Segunda à Sábado das 9:00 às 19:00");
       break;
     case 'Sale-sjc':
-      sendTextMessage(senderID, "Geekxtreme \n  Rua Teopompo de Vasconcelos, 508 \n CEP: 12243-830 \n Vila Adyana, São José dos Campos -SP \n  Na mesma rua do Policlin \n Telefone: 3322-6897");
+      sendTextMessage(senderID, "Geekxtreme\n------------------\nRua Teopompo de Vasconcelos, 508 \nCEP: 12243-830 \nVila Adyana, São José dos Campos -SP \nNa mesma rua do Policlin \nTelefone: 3322-6897");
+      break;
+    case 'Sale-tbt':
+      sendTextMessage(senderID, "Rock Point\n------------------\nA loja fica na rodoviária velha.\nCentro - Taubaté - SP\nTelefone: (12) 3426-0195");
       break;
   }
 }
