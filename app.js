@@ -240,14 +240,14 @@ function receivedPostback(event) {
         sendTextMessage(senderID, "Tel.: (12) 3952-4694");
         sendTextMessage(senderID, "Horário de funcionamento: Segunda à Sábado das 9:00 às 19:00");
       break;
-    // case 'Sale-sjc':
-    //   sendTextMessage(senderID, "- Geekxtreme - \n\n
-    //       Rua Teopompo de Vasconcelos, 508 \n
-    //       CEP: 12243-830 \n
-    //       Vila Adyana, São José dos Campos -SP \n
-    //       Na mesma rua do Policlin \n
-    //       Telefone: 3322-6897");
-    //   break;
+    case 'Sale-sjc':
+      sendTextMessage(senderID, "Geekxtreme
+          Rua Teopompo de Vasconcelos, 508
+          CEP: 12243-830 
+          Vila Adyana, São José dos Campos -SP
+          Na mesma rua do Policlin
+          Telefone: 3322-6897");
+      break;
   }
 }
 
