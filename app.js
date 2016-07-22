@@ -206,7 +206,7 @@ function receivedPostback(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var timeOfPostback = event.timestamp;
-  var message = event.message;
+  var message = event.message.text;
 
   // The 'payload' param is a developer-defined field which is set in a postback 
   // button for Structured Messages. 
