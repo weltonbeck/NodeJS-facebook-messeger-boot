@@ -1,6 +1,6 @@
 {
-    "appSecret": "",
-    "pageAccessToken": "",
-    "validationToken": "",
-    "serverURL": ""
+    "appSecret": "d6eba84a3b0c1546b0231af447b0aa0f",
+    "pageAccessToken": "EAAXHrBdkDGIBAEXwfkyCcYCZCDQOp7DapvVqa7AliZBoMGui5SIQp1fQLnkXPLv53AVLMyVBji5sD1liKz9st5nyVzQ3CNUZCmf9EdoyTcVG37iAJLXLjmooX9vVeZAcfhrZA6eiN7IGMONTbktyRXhDk58kHtbwY1Y5zrOVoewZDZD",
+    "validationToken": "teste",
+    "serverURL": "https://sakanafacebook.herokuapp.com/"
 }
