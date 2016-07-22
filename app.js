@@ -338,67 +338,6 @@ function sendTextMessage(recipientId, messageText) {
  *
  */
 function sendEventsMessage(recipientId) {
-  // var messageData = {
-  //   recipient: {
-  //     id: recipientId
-  //   },
-  //   message: {
-  //     attachment: {
-  //       type: "template",
-  //       payload: {
-  //         template_type: "button",
-  //         text: "Gostaria de saber sobre qual evento?",
-  //         buttons:[
-  //           {
-  //             type: "postback",
-  //             title: "BRASIL GAME SHOW",
-  //             payload: "BRASIL GAME SHOW"
-  //           },
-  //           {
-  //             type: "postback",
-  //             title: "COMIC CON EXPERIENCE",
-  //             payload: "COMIC CON EXPERIENCE"
-  //           },
-  //         ]
-  //       }
-  //     }
-  //   }
-  // };
-  // var messageData = {
-  //   recipient: {
-  //     id: recipientId
-  //   },
-  //   message: {
-  //     attachment: {
-  //       type: "template",
-  //       payload: {
-  //         template_type: "generic",
-  //         // text: "Gostaria de saber sobre qual evento?",
-  //         elements: [
-  //         {
-  //           title: "BRASIL GAME SHOW",              
-  //           image_url: SERVER_URL + "/assets/rift.png",
-  //           buttons: [{
-  //             type: "postback",
-  //             title: "ESCOLHER",
-  //             payload: "BRASIL GAME SHOW",
-  //           }],
-  //         },
-  //         {
-  //           title: "COMIC CON EXPERIENCE",              
-  //           image_url: SERVER_URL + "/assets/rift.png",
-  //           buttons: [{
-  //             type: "postback",
-  //             title: "ESCOLHER",
-  //             payload: "COMIC CON EXPERIENCE",
-  //           }],
-  //         }
-  //         ]
-  //       }
-  //     }
-  //   }
-  // };
-
   var messageData = {
     recipient: {
       id: recipientId
