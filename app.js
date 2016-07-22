@@ -350,14 +350,16 @@ function sendEventsMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "generic",
-          elements: [{            
+          elements: [{
+            title: "",              
             image_url: SERVER_URL + "/assets/Brasil-Game-Show.jpg",
             buttons: [{
               type: "postback",
               title: "BRASIL GAME SHOW",
               payload: "BRASIL GAME SHOW",
             }],
-          }, {              
+          }, {
+            title: "",                  
             image_url: SERVER_URL + "/assets/comic_con_experience.png",
             buttons: [{
               type: "postback",
