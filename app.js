@@ -338,6 +338,9 @@ function sendTextMessage(recipientId, messageText) {
  *
  */
 function sendEventsMessage(recipientId) {
+
+  sendTextMessage(recipientId, "Selecione um Evento");
+
   var messageData = {
     recipient: {
       id: recipientId
@@ -349,7 +352,7 @@ function sendEventsMessage(recipientId) {
           template_type: "generic",
           elements: [{
             title: "BRASIL GAME SHOW",              
-            image_url: SERVER_URL + "/assets/rift.png",
+            image_url: SERVER_URL + "/assets/Brasil-Game-Show.jpg",
             buttons: [{
               type: "postback",
               title: "ESCOLHER",
@@ -357,7 +360,7 @@ function sendEventsMessage(recipientId) {
             }],
           }, {
             title: "COMIC CON EXPERIENCE",              
-            image_url: SERVER_URL + "/assets/touch.png",
+            image_url: SERVER_URL + "/assets/comic_con_experience.png",
             buttons: [{
               type: "postback",
               title: "ESCOLHER",
