@@ -593,7 +593,7 @@ function sendGenericMessage(recipientId) {
               title: "Open Web URL"
             }, {
               type: "postback",
-              title: "Call Postback",
+              title: "generic",
               payload: "Payload for first bubble",
             }],
           }, {
@@ -607,7 +607,7 @@ function sendGenericMessage(recipientId) {
               title: "Open Web URL"
             }, {
               type: "postback",
-              title: "Call Postback",
+              title: "generic",
               payload: "Payload for second bubble",
             }]
           }]
