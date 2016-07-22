@@ -97,8 +97,8 @@ app.post('/webhook', function (req, res) {
           receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
           receivedMessage(messagingEvent);
-        } else if (messagingEvent.read) {
-          receivedMessageRead(messagingEvent);
+        } else if (messagingEvent.postback) {
+          receivedPostback(messagingEvent);
         } else {
           console.log("Webhook received unknown messagingEvent: ", messagingEvent);
         }
@@ -196,6 +196,30 @@ function receivedAuthentication(event) {
 }
 
 /*
+ * Postback Event
+ *
+ * This event is called when a postback is tapped on a Structured Message. 
+ * https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received
+ * 
+ */
+function receivedPostback(event) {
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfPostback = event.timestamp;
+
+  // The 'payload' param is a developer-defined field which is set in a postback 
+  // button for Structured Messages. 
+  var payload = event.postback.payload;
+
+  console.log("Received postback for user %d and page %d with payload '%s' " + 
+    "at %d", senderID, recipientID, payload, timeOfPostback);
+
+  // When a postback is called, we'll send a message back to the sender to 
+  // let them know it was successful
+  sendTextMessage(senderID, "Postback called");
+}
+
+/*
  * Message Event
  *
  * This event is called when a message is sent to your page. The 'message' 
@@ -234,13 +258,6 @@ function receivedMessage(event) {
     console.log("Received echo for message %s and app %d with metadata %s", 
       messageId, appId, metadata);
     return;
-  } else if (quickReply) {
-    var quickReplyPayload = quickReply.payload;
-    console.log("Quick reply for message %s with payload %s",
-      messageId, quickReplyPayload);
-
-    sendTextMessage(senderID, "Quick reply tapped");
-    return;
   }
 
   if (messageText) {
@@ -249,6 +266,11 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
+
+      case 'Ajuda'
+        sendEventsMessage(senderID);
+        break;        
+
       case 'typing on':
         sendTypingOn(senderID);
         break;        
@@ -264,26 +286,6 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Message with attachment received");
   }
 }
-
-/*
- * Message Read Event
- *
- * This event is called when a previously-sent message has been read.
- * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-read
- * 
- */
-function receivedMessageRead(event) {
-  var senderID = event.sender.id;
-  var recipientID = event.recipient.id;
-
-  // All messages before watermark (a timestamp) or sequence have been seen.
-  var watermark = event.read.watermark;
-  var sequenceNumber = event.read.seq;
-
-  console.log("Received message read event for watermark %d and sequence " +
-    "number %d", watermark, sequenceNumber);
-}
-
 
 /*
  * Send a text message using the Send API.
@@ -302,6 +304,45 @@ function sendTextMessage(recipientId, messageText) {
 
   callSendAPI(messageData);
 }
+
+// ----------- START MY METHODS --------
+
+/*
+ * Send a button message using the Send API.
+ *
+ */
+function sendEventsMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "Gostaria de saber sobre qual evento?",
+          buttons:[
+            {
+              type: "postback",
+              title: "BRASIL GAME SHOW",
+              payload: "DEVELOPED_DEFINED_PAYLOAD"
+            },
+            {
+              type: "postback",
+              title: "COMIC CON EXPERIENCE",
+              payload: "DEVELOPED_DEFINED_PAYLOAD"
+            },
+          ]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
+// ----------- END MY METHODS --------
 
 /*
  * Turn typing indicator on
