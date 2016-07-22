@@ -231,7 +231,22 @@ function receivedPostback(event) {
         'http://www.ccxp.com.br/');
       break;
     case 'Sale':
-      sendTextMessage(senderID, "Pontos de venda");
+      sendSaleCitiesMessage(senderID);
+      break;
+    case 'Sale-jac':
+      sendTextMessage(senderID, "- Cantinho Oriental -
+        Rua Dr. Lucio Malta, 393 - Loja 33 - Centro
+        Dentro do Promovale
+        Tel.: (12) 3952-4694
+        Horário de funcionamento: Segunda à Sábado das 9:00 às 19:00");
+      break;
+    case 'Sale-sjc':
+      sendTextMessage(senderID, "- Geekxtreme - \n\n
+          Rua Teopompo de Vasconcelos, 508 \n
+          CEP: 12243-830 \n
+          Vila Adyana, São José dos Campos -SP \n
+          Na mesma rua do Policlin \n
+          Telefone: 3322-6897");
       break;
   }
 }
@@ -389,6 +404,45 @@ function sendEventOptionsMessage(recipientId, link_evento, like_site) {
               type: "web_url",
               title: "Site do Evento",
               url: like_site,
+            },
+          ]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+/*
+ * Send a button message using the Send API.
+ *
+ */
+function sendSaleCitiesMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "Selecione uma cidade:",
+          buttons:[
+            {
+              type: "postback",
+              title: "JACAREÍ",
+              payload: "Sale-jac"
+            },
+            {
+              type: "postback",
+              title: "SÃO JOSÉ DOS CAMPOS",
+              payload: "Sale-sjc"
+            },
+            {
+              type: "postback",
+              title: "TAUBATÉ",
+              payload: "Sale-tbt"
             },
           ]
         }
