@@ -364,6 +364,41 @@ function sendEventsMessage(recipientId) {
   //     }
   //   }
   // };
+  // var messageData = {
+  //   recipient: {
+  //     id: recipientId
+  //   },
+  //   message: {
+  //     attachment: {
+  //       type: "template",
+  //       payload: {
+  //         template_type: "generic",
+  //         // text: "Gostaria de saber sobre qual evento?",
+  //         elements: [
+  //         {
+  //           title: "BRASIL GAME SHOW",              
+  //           image_url: SERVER_URL + "/assets/rift.png",
+  //           buttons: [{
+  //             type: "postback",
+  //             title: "ESCOLHER",
+  //             payload: "BRASIL GAME SHOW",
+  //           }],
+  //         },
+  //         {
+  //           title: "COMIC CON EXPERIENCE",              
+  //           image_url: SERVER_URL + "/assets/rift.png",
+  //           buttons: [{
+  //             type: "postback",
+  //             title: "ESCOLHER",
+  //             payload: "COMIC CON EXPERIENCE",
+  //           }],
+  //         }
+  //         ]
+  //       }
+  //     }
+  //   }
+  // };
+
   var messageData = {
     recipient: {
       id: recipientId
@@ -373,31 +408,39 @@ function sendEventsMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "generic",
-          text: "Gostaria de saber sobre qual evento?",
-          elements: [
-          {
-            title: "BRASIL GAME SHOW",              
+          elements: [{
+            title: "rift",
+            subtitle: "Next-generation virtual reality",
+            item_url: "https://www.oculus.com/en-us/rift/",               
             image_url: SERVER_URL + "/assets/rift.png",
             buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/rift/",
+              title: "Open Web URL"
+            }, {
               type: "postback",
-              title: "ESCOLHER",
-              payload: "BRASIL GAME SHOW",
+              title: "Call Postback",
+              payload: "Payload for first bubble",
             }],
-          },
-          {
-            title: "COMIC CON EXPERIENCE",              
-            image_url: SERVER_URL + "/assets/rift.png",
+          }, {
+            title: "touch",
+            subtitle: "Your Hands, Now in VR",
+            item_url: "https://www.oculus.com/en-us/touch/",               
+            image_url: SERVER_URL + "/assets/touch.png",
             buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/touch/",
+              title: "Open Web URL"
+            }, {
               type: "postback",
-              title: "ESCOLHER",
-              payload: "COMIC CON EXPERIENCE",
-            }],
-          }, 
-          ]
+              title: "Call Postback",
+              payload: "Payload for second bubble",
+            }]
+          }]
         }
       }
     }
-  };
+  };  
 
   callSendAPI(messageData);
 }
