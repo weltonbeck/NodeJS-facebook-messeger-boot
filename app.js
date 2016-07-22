@@ -408,21 +408,22 @@ function sendEventsMessage(recipientId) {
         type: "template",
         payload: {
           template_type: "generic",
+          text: "Gostaria de saber sobre qual evento?",
           elements: [{
-            title: "rift",              
+            title: "BRASIL GAME SHOW",              
             image_url: SERVER_URL + "/assets/rift.png",
             buttons: [{
               type: "postback",
-              title: "Call Postback",
-              payload: "Payload for first bubble",
+              title: "ESCOLHER",
+              payload: "BRASIL GAME SHOW",
             }],
           }, {
-            title: "touch",              
+            title: "COMIC CON EXPERIENCE",              
             image_url: SERVER_URL + "/assets/touch.png",
             buttons: [{
               type: "postback",
-              title: "Call Postback",
-              payload: "Payload for second bubble",
+              title: "ESCOLHER",
+              payload: "COMIC CON EXPERIENCE",
             }]
           }]
         }
