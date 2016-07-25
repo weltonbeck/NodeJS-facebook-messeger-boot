@@ -293,7 +293,8 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
 
-      case 'Ajuda':
+      case '#falarComORobo':
+      case '#falarcomorobo':
         sendEventsMessage(senderID);
         break;        
 
@@ -306,7 +307,7 @@ function receivedMessage(event) {
       //   break;        
 
       default:
-        sendTextMessage(senderID, 'Digite a palavra Ajuda.');
+        sendTextMessage(senderID, 'Digite a palavra #falarComORobo.');
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
